@@ -5,4 +5,19 @@ package com.amaliapps.musicapp;
  */
 
 public class Song {
+    private String mSongName;
+    private Artist mArtist;
+
+    public Song(String songName, Artist artist) {
+        this.mSongName = songName;
+        this.mArtist = artist;
+    }
+
+    public String getSongName() {
+        return mSongName;
+    }
+
+    public Artist getArtist() {
+        return mArtist;
+    }
 }
