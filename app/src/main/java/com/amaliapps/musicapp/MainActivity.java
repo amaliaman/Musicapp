@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private ArrayList<Artist> initializeArtists() {
         // create artists
-        Artist bowie = new Artist("David Bowie", 3);
+        Artist bowie = new Artist("David Bowie", R.drawable.bowie);
         Artist blur = new Artist("Blur", 4);
 
         ArrayList<Artist> artists = new ArrayList<>();
