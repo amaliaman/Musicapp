@@ -7,14 +7,20 @@ import java.util.ArrayList;
  */
 
 public class Album {
+    private String mName;
     private ArrayList<Song> mSongs;
     private int mAlbumArt;
     private Artist mArtist;
 
-    public Album(ArrayList<Song> songs, int albumArt, Artist artist) {
+    Album(String name, ArrayList<Song> songs, int albumArt, Artist artist) {
+        this.mName = name;
         this.mSongs = songs;
         this.mAlbumArt = albumArt;
         this.mArtist = artist;
+    }
+
+    public String getName() {
+        return mName;
     }
 
     public ArrayList<Song> getSongs() {

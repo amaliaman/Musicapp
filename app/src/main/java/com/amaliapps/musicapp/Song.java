@@ -1,23 +1,30 @@
 package com.amaliapps.musicapp;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by amaliam on 15/03/2018.
  */
 
-public class Song {
+public class Song implements Comparable<Song> {
     private String mSongName;
     private Artist mArtist;
 
-    public Song(String songName, Artist artist) {
+    Song(String songName, Artist artist) {
         this.mSongName = songName;
         this.mArtist = artist;
     }
 
-    public String getSongName() {
+    String getSongName() {
         return mSongName;
     }
 
-    public Artist getArtist() {
+    Artist getArtist() {
         return mArtist;
+    }
+
+    @Override
+    public int compareTo(@NonNull Song o) {
+        return this.mSongName.compareTo(o.mSongName);
     }
 }

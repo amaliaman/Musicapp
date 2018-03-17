@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Musicapp</string>
+    <string name="songs_label">Songs</string>
+    <string name="bowie_name">David Bowie</string>
+    <string name="blur_name">Blur</string>
+    <string name="low_name">Low</string>
+    <string name="low_song_1">Speed of Life</string>
+    <string name="low_song_2">Breaking Glass</string>
+    <string name="low_song_3">What in the World</string>
+    <string name="low_song_4">Sound and Vision</string>
+    <string name="low_song_5">Always Crashing in the Same Car</string>
+    <string name="low_song_6">Be My Wife</string>
+    <string name="low_song_7">A New Career in a New Town</string>
+    <string name="low_song_8">Warszawa</string>
+    <string name="low_song_9">Art Decade</string>
+    <string name="low_song_10">Weeping Wall</string>
+    <string name="low_song_11">Subterraneans</string>
 </resources>
