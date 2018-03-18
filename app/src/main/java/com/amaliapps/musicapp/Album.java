@@ -23,7 +23,7 @@ public class Album {
         return mName;
     }
 
-    public ArrayList<Song> getSongs() {
+    ArrayList<Song> getSongs() {
         return mSongs;
     }
 
@@ -31,7 +31,7 @@ public class Album {
         return mAlbumArt;
     }
 
-    public Artist getArtist() {
+    Artist getArtist() {
         return mArtist;
     }
 }

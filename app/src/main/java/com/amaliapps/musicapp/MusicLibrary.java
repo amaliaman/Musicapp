@@ -8,29 +8,46 @@ import java.util.ArrayList;
 
 public class MusicLibrary {
     private static ArrayList<Album> mAlbums = new ArrayList<>();
+    private static boolean mIsInitialized = false;
 
     public static ArrayList<Album> getAllAlbums() {
         return mAlbums;
     }
 
-    static ArrayList<Song> getAllSongs() { // todo: remove duplicates
+    static ArrayList<Song> getAllSongs() {
         ArrayList<Song> songs = new ArrayList<>();
-
         for (Album album : mAlbums) {
             songs.addAll(album.getSongs());
         }
-
         return songs;
     }
 
-    static ArrayList<Artist> getAllArtists() { // todo: remove duplicates
+    static ArrayList<Artist> getAllArtists() {
         ArrayList<Artist> artists = new ArrayList<>();
-
         for (Album album : mAlbums) {
-            artists.add(album.getArtist());
+            if (!artists.contains(album.getArtist())) {
+                artists.add(album.getArtist());
+            }
         }
-
         return artists;
+    }
+
+    static ArrayList<Song> getSongsByArtist(Artist artist) {
+        ArrayList<Song> songs = new ArrayList<>();
+        for (Album album : mAlbums) {
+            if (album.getArtist().getArtistName().equals(artist.getArtistName())) {
+                songs.addAll(album.getSongs());
+            }
+        }
+        return songs;
+    }
+
+    static boolean isInitialized() {
+        return mIsInitialized;
+    }
+
+    static void setIsInitialized(boolean isInitialized) {
+        MusicLibrary.mIsInitialized = isInitialized;
     }
 
     static void addAlbum(Album album) {
