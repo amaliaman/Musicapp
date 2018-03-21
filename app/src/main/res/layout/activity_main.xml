@@ -42,4 +42,22 @@
         android:layout_height="wrap_content"
         android:numColumns="3" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/albums_label"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/all_albums_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="all albums..." />
+
+    <GridView
+        android:id="@+id/all_albums"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3" />
+
 </LinearLayout>

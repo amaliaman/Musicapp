@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int MAX_ITEMS = 3;
     public static final String SONGS_EXTRA = "com.amaliapps.musicapp.SONGS";
     public static final String ARTISTS_EXTRA = "com.amaliapps.musicapp.ARTISTS";
+    public static final String ALBUMS_EXTRA = "com.amaliapps.musicapp.ALBUMS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
         // get first 3 Songs
         ArrayList<Song> firstSongs = MusicLibrary.getAllSongs();
         Collections.sort(firstSongs);
-        firstSongs = new ArrayList<>(firstSongs.subList(0, MAX_ITEMS));
+        int max = MAX_ITEMS;
+        if (firstSongs.size() < MAX_ITEMS) {
+            max = firstSongs.size();
+        }
+        firstSongs = new ArrayList<>(firstSongs.subList(0, max));
         SongCubeAdapter songCubeAdapter = new SongCubeAdapter(this, firstSongs);
         GridView songsGridView = findViewById(R.id.all_songs);
         songsGridView.setAdapter(songCubeAdapter);
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // get first 3 Artists
         ArrayList<Artist> firstArtists = MusicLibrary.getAllArtists();
         Collections.sort(firstArtists);
-        int max = MAX_ITEMS;
+        max = MAX_ITEMS;
         if (firstArtists.size() < MAX_ITEMS) {
             max = firstArtists.size();
         }
@@ -43,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
         ArtistCubeAdapter artistCubeAdapter = new ArtistCubeAdapter(this, firstArtists);
         GridView artistsGridView = findViewById(R.id.all_artists);
         artistsGridView.setAdapter(artistCubeAdapter);
+
+        // get first 3 Albums
+        ArrayList<Album> firstAlbums = MusicLibrary.getAllAlbums();
+        Collections.sort(firstAlbums);
+        max = MAX_ITEMS;
+        if (firstAlbums.size() < MAX_ITEMS) {
+            max = firstAlbums.size();
+        }
+        firstAlbums = new ArrayList<>(firstAlbums.subList(0, max));
+        AlbumCubeAdapter albumCubeAdapter = new AlbumCubeAdapter(this, firstAlbums);
+        GridView albumsGridView = findViewById(R.id.all_albums);
+        albumsGridView.setAdapter(albumCubeAdapter);
 
         // set listeners
         TextView allArtists = findViewById(R.id.all_artists_link);
@@ -62,6 +79,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent songsIntent = new Intent(MainActivity.this, SongsActivity.class);
                 songsIntent.putParcelableArrayListExtra(SONGS_EXTRA, MusicLibrary.getAllSongs());
                 startActivity(songsIntent);
+            }
+        });
+
+        TextView allAlbums = findViewById(R.id.all_albums_link);
+        allAlbums.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent albumsIntent = new Intent(MainActivity.this, AlbumsActivity.class);
+                albumsIntent.putParcelableArrayListExtra(ALBUMS_EXTRA, MusicLibrary.getAllAlbums());
+                startActivity(albumsIntent);
             }
         });
     }

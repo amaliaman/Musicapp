@@ -10,7 +10,7 @@ public class MusicLibrary {
     private static ArrayList<Album> mAlbums = new ArrayList<>();
     private static boolean mIsInitialized = false;
 
-    public static ArrayList<Album> getAllAlbums() {
+    static ArrayList<Album> getAllAlbums() {
         return mAlbums;
     }
 
