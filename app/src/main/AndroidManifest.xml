@@ -24,6 +24,10 @@
             android:name=".ArtistsActivity"
             android:label="@string/artists_label"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NowPlayingActivity"
+            android:label="@string/now_playing"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

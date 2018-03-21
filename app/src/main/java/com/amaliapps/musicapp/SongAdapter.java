@@ -1,12 +1,14 @@
 package com.amaliapps.musicapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
         if (listItemView == null) {
@@ -31,7 +33,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         }
 
         // Get the {@link Word} object located at this position in the list
-        Song currentSong = getItem(position);
+        final Song currentSong = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID miwok_text_view
         TextView nameTextView = listItemView.findViewById(R.id.song_name);
@@ -44,6 +46,16 @@ public class SongAdapter extends ArrayAdapter<Song> {
         if (currentSong != null) {
             numberTextView.setText(currentSong.getArtist().getArtistName());
         }
+
+        Button b = listItemView.findViewById(R.id.play);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);
+                nowPlayingIntent.putExtra(SongsActivity.NOW_PLAYING_EXTRA, currentSong);
+                view.getContext().startActivity(nowPlayingIntent);
+            }
+        });
 
         return listItemView;
     }

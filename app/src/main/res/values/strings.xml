@@ -16,4 +16,5 @@
     <string name="low_song_10">Weeping Wall</string>
     <string name="low_song_11">Subterraneans</string>
     <string name="artists_label">Artists</string>
+    <string name="now_playing">Now Playing</string>
 </resources>

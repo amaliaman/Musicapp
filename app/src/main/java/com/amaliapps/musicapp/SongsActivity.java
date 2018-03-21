@@ -9,14 +9,16 @@ import java.util.ArrayList;
 
 public class SongsActivity extends AppCompatActivity {
 
+    public static final String NOW_PLAYING_EXTRA = "com.amaliapps.musicapp.NOW_PLAYING";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_songs);
 
         // get Songs list from intent
-        Intent intent = getIntent();
-        ArrayList<Song> songs = intent.getParcelableArrayListExtra(MainActivity.SONGS_EXTRA);
+        Intent songsIntent = getIntent();
+        final ArrayList<Song> songs = songsIntent.getParcelableArrayListExtra(MainActivity.SONGS_EXTRA);
 
         SongAdapter songAdapter = new SongAdapter(this, songs);
         ListView songsListView = findViewById(R.id.songs_view);
