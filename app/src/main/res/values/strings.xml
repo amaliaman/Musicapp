@@ -18,4 +18,20 @@
     <string name="artists_label">Artists</string>
     <string name="now_playing_label">Now Playing</string>
     <string name="albums_label">Albums</string>
+    <string name="leisure_song_1">She\'s So High</string>
+    <string name="leisure_song_2">Bang</string>
+    <string name="leisure_song_3">Slow Down</string>
+    <string name="leisure_song_4">Repetition</string>
+    <string name="leisure_song_5">Bad Day</string>
+    <string name="leisure_song_6">Sing</string>
+    <string name="leisure_song_7">There\'s No Other Way</string>
+    <string name="leisure_song_8">Fool</string>
+    <string name="leisure_song_9">Come Together</string>
+    <string name="leisure_song_10">High Cool</string>
+    <string name="leisure_song_11">Birthday</string>
+    <string name="leisure_song_12">Wear Me Down</string>
+    <string name="leisure_name">Leisure</string>
+    <string name="all_songs_label">all songs...</string>
+    <string name="all_artists_label">all artists...</string>
+    <string name="all_albums_label">all albums...</string>
 </resources>

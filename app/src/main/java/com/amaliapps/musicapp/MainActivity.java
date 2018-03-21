@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * fill the library with Songs, Artists and Albums
+     * to mimic real media on device
      */
     private void initializeMusicLibrary() {
         if (!MusicLibrary.isInitialized()) {
@@ -118,12 +119,21 @@ public class MainActivity extends AppCompatActivity {
             Album low = new Album(getString(R.string.low_name), lowSongs, R.drawable.low, bowie);
             MusicLibrary.addAlbum(low);
 
-
             ArrayList<Song> leisureSongs = new ArrayList<>();
-            leisureSongs.add(new Song("sasdfsdfs", blur));
-            Album leisure = new Album("Leisure", leisureSongs, R.drawable.leisure, blur);
+            leisureSongs.add(new Song(getString(R.string.leisure_song_1), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_2), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_3), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_4), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_5), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_6), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_7), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_8), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_9), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_10), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_11), blur));
+            leisureSongs.add(new Song(getString(R.string.leisure_song_12), blur));
+            Album leisure = new Album(getString(R.string.leisure_name), leisureSongs, R.drawable.leisure, blur);
             MusicLibrary.addAlbum(leisure);
-
 
             MusicLibrary.setIsInitialized(true);
         }

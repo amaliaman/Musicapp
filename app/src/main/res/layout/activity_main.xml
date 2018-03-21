@@ -6,58 +6,91 @@
     android:orientation="vertical"
     tools:context="com.amaliapps.musicapp.MainActivity">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/songs_label"
-        android:textAllCaps="true" />
+        android:background="@color/accent">
 
-    <TextView
-        android:id="@+id/all_songs_link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="all songs..." />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/songs_label"
+            android:textAllCaps="true" />
 
-    <GridView
-        android:id="@+id/all_songs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="3" />
+        <TextView
+            android:id="@+id/all_songs_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/all_songs_label" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/artists_label"
-        android:textAllCaps="true" />
+        <GridView
+            android:id="@+id/all_songs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/all_songs_link"
+            android:numColumns="3" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/all_artists_link"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="all artists..." />
+        android:background="@color/primary_dark">
 
-    <GridView
-        android:id="@+id/all_artists"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="3" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/artists_label"
+            android:textAllCaps="true" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/albums_label"
-        android:textAllCaps="true" />
+        <TextView
+            android:id="@+id/all_artists_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/all_artists_label" />
 
-    <TextView
-        android:id="@+id/all_albums_link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="all albums..." />
+        <GridView
+            android:id="@+id/all_artists"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/all_artists_link"
+            android:numColumns="3" />
+    </RelativeLayout>
 
-    <GridView
-        android:id="@+id/all_albums"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3" />
+        android:background="@color/primary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/albums_label"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/all_albums_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/all_albums_label" />
+
+        <GridView
+            android:id="@+id/all_albums"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/all_albums_link"
+            android:numColumns="3" />
+    </RelativeLayout>
 
 </LinearLayout>
