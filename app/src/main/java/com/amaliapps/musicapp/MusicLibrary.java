@@ -1,17 +1,20 @@
 package com.amaliapps.musicapp;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by amaliam on 15/03/2018.
  */
 
-public class MusicLibrary {
+class MusicLibrary {
     private static ArrayList<Album> mAlbums = new ArrayList<>();
     private static boolean mIsInitialized = false;
 
     static ArrayList<Album> getAllAlbums() {
-        return mAlbums;
+        ArrayList<Album> albums = mAlbums;
+        Collections.sort(albums);
+        return albums;
     }
 
     static ArrayList<Song> getAllSongs() {
@@ -19,6 +22,7 @@ public class MusicLibrary {
         for (Album album : mAlbums) {
             songs.addAll(album.getSongs());
         }
+        Collections.sort(songs);
         return songs;
     }
 
@@ -29,7 +33,19 @@ public class MusicLibrary {
                 artists.add(album.getArtist());
             }
         }
+        Collections.sort(artists);
         return artists;
+    }
+
+    static ArrayList<Album> getAlbumsByArtist(Artist artist) {
+        ArrayList<Album> albums = new ArrayList<>();
+        for (Album album : getAllAlbums()) {
+            if (album.getArtist().equals(artist)) {
+                albums.add(album);
+            }
+        }
+        Collections.sort(albums);
+        return albums;
     }
 
     static ArrayList<Song> getSongsByArtist(Artist artist) {
@@ -39,6 +55,7 @@ public class MusicLibrary {
                 songs.addAll(album.getSongs());
             }
         }
+        Collections.sort(songs);
         return songs;
     }
 
@@ -53,5 +70,4 @@ public class MusicLibrary {
     static void addAlbum(Album album) {
         mAlbums.add(album);
     }
-
 }

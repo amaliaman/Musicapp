@@ -31,7 +31,7 @@ public class SongCubeAdapter extends ArrayAdapter<Song> {
         }
 
         // Get the {@link Word} object located at this position in the list
-        Song currentSong = getItem(position);
+        final Song currentSong = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID miwok_text_view
         TextView nameTextView = listItemView.findViewById(R.id.song_name);

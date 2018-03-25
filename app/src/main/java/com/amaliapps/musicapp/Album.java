@@ -23,7 +23,7 @@ public class Album implements Parcelable, Comparable<Album> {
         this.mArtist = artist;
     }
 
-    Album(Parcel in) {
+    private Album(Parcel in) {
         mName = in.readString();
         mSongs = in.createTypedArrayList(Song.CREATOR);
         mAlbumArt = in.readInt();

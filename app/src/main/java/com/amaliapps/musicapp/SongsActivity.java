@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class SongsActivity extends AppCompatActivity {
 
-    public static final String NOW_PLAYING_EXTRA = "com.amaliapps.musicapp.NOW_PLAYING";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +22,28 @@ public class SongsActivity extends AppCompatActivity {
         SongAdapter songAdapter = new SongAdapter(this, songs);
         ListView songsListView = findViewById(R.id.songs_view);
         songsListView.setAdapter(songAdapter);
+
+        if (songsIntent.getStringExtra(MainActivity.FILTER_TYPE_EXTRA) != null) {
+            String filter = songsIntent.getStringExtra(MainActivity.FILTER_TYPE_EXTRA);
+            String filterName = songsIntent.getStringExtra(MainActivity.FILTER_NAME_EXTRA);
+            setActivityTitle(filter, filterName);
+        } else {
+            setTitle("All");
+        }
+    }
+
+    private void setActivityTitle(String filter, String filterName) {
+        String title = "";
+        switch (filter) {
+            case MainActivity.FILTER_ALBUM:
+                title = "Songs in album " + filterName;
+                break;
+            case MainActivity.FILTER_ARTIST:
+                title = "Songs by " + filterName;
+                break;
+            default:
+                title = "All Songs";
+        }
+        setTitle(title);
     }
 }

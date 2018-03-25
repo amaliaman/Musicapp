@@ -52,7 +52,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
             @Override
             public void onClick(View view) {
                 Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);
-                nowPlayingIntent.putExtra(SongsActivity.NOW_PLAYING_EXTRA, currentSong);
+                nowPlayingIntent.putExtra(MainActivity.NOW_PLAYING_EXTRA, currentSong);
                 view.getContext().startActivity(nowPlayingIntent);
             }
         });

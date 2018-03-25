@@ -51,6 +51,16 @@ public class ArtistAdapter extends ArrayAdapter<Artist> {
             }
         });
 
+        Button bAlbums = listItemView.findViewById(R.id.albums);
+        bAlbums.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent albumsIntent = new Intent(view.getContext(), AlbumsActivity.class);
+                albumsIntent.putExtra(MainActivity.ALBUMS_EXTRA, MusicLibrary.getAlbumsByArtist(currentArtist));
+                view.getContext().startActivity(albumsIntent);
+            }
+        });
+
         return listItemView;
     }
 }

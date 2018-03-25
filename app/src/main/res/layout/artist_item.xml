@@ -16,5 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="songs" />
+    <Button
+        android:id="@+id/albums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="albums" />
 
 </LinearLayout>
