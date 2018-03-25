@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +38,17 @@ public class AlbumCubeAdapter extends ArrayAdapter<Album> {
         TextView nameTextView = listItemView.findViewById(R.id.album_name);
         if (currentAlbum != null) {
             nameTextView.setText(currentAlbum.getName());
+        }
+
+        TextView artistTextView = listItemView.findViewById(R.id.artist_name);
+        if (currentAlbum != null) {
+            artistTextView.setText(currentAlbum.getArtist().getArtistName());
+        }
+
+        ImageView albumArt = listItemView.findViewById(R.id.album_art);
+        if (currentAlbum != null) {
+            albumArt.setImageResource(currentAlbum.getAlbumArt());
+            albumArt.setContentDescription(currentAlbum.getName());
         }
 
         return listItemView;

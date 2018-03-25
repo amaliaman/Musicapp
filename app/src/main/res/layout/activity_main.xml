@@ -1,99 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.amaliapps.musicapp.MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:background="@color/accent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="@string/songs_label"
-            android:textAllCaps="true" />
-
-        <TextView
-            android:id="@+id/all_songs_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/all_songs_label" />
-
-        <GridView
-            android:id="@+id/all_songs"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/all_songs_link"
-            android:numColumns="3" />
-    </RelativeLayout>
+            android:background="@color/primary_dark"
+            android:padding="8dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:background="@color/primary_dark">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/artists_label"
+                android:textAllCaps="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="@string/artists_label"
-            android:textAllCaps="true" />
+            <ImageView
+                android:id="@+id/all_artists_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/artists_label"
+                android:src="@drawable/ic_artists" />
 
-        <TextView
-            android:id="@+id/all_artists_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/all_artists_label" />
+            <GridView
+                android:id="@+id/all_artists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/all_artists_link"
+                android:numColumns="3" />
+        </RelativeLayout>
 
-        <GridView
-            android:id="@+id/all_artists"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/all_artists_link"
-            android:numColumns="3" />
-    </RelativeLayout>
+            android:background="@color/primary"
+            android:padding="8dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:background="@color/primary">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/albums_label"
+                android:textAllCaps="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="@string/albums_label"
-            android:textAllCaps="true" />
+            <ImageView
+                android:id="@+id/all_albums_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/albums_label"
+                android:src="@drawable/ic_albums" />
 
-        <TextView
-            android:id="@+id/all_albums_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/all_albums_label" />
+            <GridView
+                android:id="@+id/all_albums"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/all_albums_link"
+                android:numColumns="3" />
+        </RelativeLayout>
 
-        <GridView
-            android:id="@+id/all_albums"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/all_albums_link"
-            android:numColumns="3" />
-    </RelativeLayout>
+            android:background="@color/accent"
+            android:padding="8dp">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/songs_label"
+                android:textAllCaps="true" />
+
+            <ImageView
+                android:id="@+id/all_songs_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/songs_label"
+                android:src="@drawable/ic_songs" />
+
+            <GridView
+                android:id="@+id/all_songs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/all_songs_link"
+                android:numColumns="3" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
