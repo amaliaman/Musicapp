@@ -17,12 +17,8 @@
             android:padding="8dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:text="@string/artists_label"
-                android:textAllCaps="true" />
+                style="@style/SectionTitle"
+                android:text="@string/artists_label" />
 
             <ImageView
                 android:id="@+id/all_artists_link"
@@ -48,12 +44,8 @@
             android:padding="8dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:text="@string/albums_label"
-                android:textAllCaps="true" />
+                style="@style/SectionTitle"
+                android:text="@string/albums_label" />
 
             <ImageView
                 android:id="@+id/all_albums_link"
@@ -79,12 +71,8 @@
             android:padding="8dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:text="@string/songs_label"
-                android:textAllCaps="true" />
+                style="@style/SectionTitle"
+                android:text="@string/songs_label" />
 
             <ImageView
                 android:id="@+id/all_songs_link"

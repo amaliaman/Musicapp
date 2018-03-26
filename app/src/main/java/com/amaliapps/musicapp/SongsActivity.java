@@ -3,6 +3,8 @@ package com.amaliapps.musicapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,35 +17,29 @@ public class SongsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_songs);
 
-        // get Songs list from intent
-        Intent songsIntent = getIntent();
-        final ArrayList<Song> songs = songsIntent.getParcelableArrayListExtra(MainActivity.SONGS_EXTRA);
+        // get intent
+        Intent intent = getIntent();
+        ArrayList<Song> songsList = new ArrayList<>();
 
-        SongAdapter songAdapter = new SongAdapter(this, songs);
+        Album album = intent.getParcelableExtra(MainActivity.ALBUM_EXTRA);
+        ArrayList<Song> songs = intent.getParcelableArrayListExtra(MainActivity.SONGS_EXTRA);
+
+        // check if intent has album
+        if (album != null) {
+            setTitle(album.getName());
+            songsList = album.getSongs();
+            ImageView art = findViewById(R.id.art);
+            art.setImageResource(album.getAlbumArt());
+            art.setVisibility(View.VISIBLE);
+        }
+        // check if intent has songs list
+        else if (songs != null) {
+            setTitle(R.string.songs_label);
+            songsList = songs;
+        }
+
+        SongAdapter songAdapter = new SongAdapter(this, songsList);
         ListView songsListView = findViewById(R.id.songs_view);
         songsListView.setAdapter(songAdapter);
-
-        if (songsIntent.getStringExtra(MainActivity.FILTER_TYPE_EXTRA) != null) {
-            String filter = songsIntent.getStringExtra(MainActivity.FILTER_TYPE_EXTRA);
-            String filterName = songsIntent.getStringExtra(MainActivity.FILTER_NAME_EXTRA);
-            setActivityTitle(filter, filterName);
-        } else {
-            setTitle("All");
-        }
-    }
-
-    private void setActivityTitle(String filter, String filterName) {
-        String title = "";
-        switch (filter) {
-            case MainActivity.FILTER_ALBUM:
-                title = "Songs in album " + filterName;
-                break;
-            case MainActivity.FILTER_ARTIST:
-                title = "Songs by " + filterName;
-                break;
-            default:
-                title = "All Songs";
-        }
-        setTitle(title);
     }
 }

@@ -18,13 +18,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String SONGS_EXTRA = "com.amaliapps.musicapp.SONGS";
     public static final String ARTISTS_EXTRA = "com.amaliapps.musicapp.ARTISTS";
     public static final String ALBUMS_EXTRA = "com.amaliapps.musicapp.ALBUMS";
+    public static final String ALBUM_EXTRA = "com.amaliapps.musicapp.ALBUM";
     public static final String NOW_PLAYING_EXTRA = "com.amaliapps.musicapp.NOW_PLAYING";
-
-    public static final String FILTER_TYPE_EXTRA = "com.amaliapps.musicapp.FILTER";
-    public static final String FILTER_NAME_EXTRA = "com.amaliapps.musicapp.FILTER_NAME";
-
-    public static final String FILTER_ARTIST = "artist";
-    public static final String FILTER_ALBUM = "album";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +89,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Album album = (Album) albumsGridView.getItemAtPosition(position);
                 Intent albumsIntent = new Intent(MainActivity.this, SongsActivity.class);
-                albumsIntent.putParcelableArrayListExtra(SONGS_EXTRA, album.getSongs());
-//                albumsIntent.putExtra(FILTER_TYPE_EXTRA, FILTER_ALBUM);
-//                albumsIntent.putExtra(FILTER_NAME_EXTRA, album.getName());
+//                albumsIntent.putParcelableArrayListExtra(SONGS_EXTRA, album.getSongs());
+                albumsIntent.putExtra(ALBUM_EXTRA, album);
                 startActivity(albumsIntent);
             }
         });

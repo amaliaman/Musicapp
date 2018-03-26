@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Musicapp</string>
-    <string name="songs_label">Songs</string>
+    <string name="songs_label">All Songs</string>
     <string name="bowie_name">David Bowie</string>
     <string name="blur_name">Blur</string>
     <string name="low_name">Low</string>
@@ -31,8 +31,8 @@
     <string name="leisure_song_11">Birthday</string>
     <string name="leisure_song_12">Wear Me Down</string>
     <string name="leisure_name">Leisure</string>
-    <string name="all_songs_label">all songs...</string>
-    <string name="all_artists_label">all artists...</string>
-    <string name="all_albums_label">all albums...</string>
+    <!--<string name="all_songs_label">all songs...</string>-->
+    <!--<string name="all_artists_label">all artists...</string>-->
+    <!--<string name="all_albums_label">all albums...</string>-->
     <string name="play">Play</string>
 </resources>
