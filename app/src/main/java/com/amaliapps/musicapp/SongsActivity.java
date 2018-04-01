@@ -15,7 +15,7 @@ public class SongsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_songs);
+        setContentView(R.layout.items);
 
         // get intent
         Intent intent = getIntent();
@@ -34,12 +34,12 @@ public class SongsActivity extends AppCompatActivity {
         }
         // check if intent has songs list
         else if (songs != null) {
-            setTitle(R.string.songs_label);
+            setTitle(R.string.all_songs_label);
             songsList = songs;
         }
 
         SongAdapter songAdapter = new SongAdapter(this, songsList);
-        ListView songsListView = findViewById(R.id.songs_view);
+        ListView songsListView = findViewById(R.id.items_view);
         songsListView.setAdapter(songAdapter);
     }
 }
