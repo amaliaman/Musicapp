@@ -40,7 +40,7 @@ class MusicLibrary {
     static ArrayList<Album> getAlbumsByArtist(Artist artist) {
         ArrayList<Album> albums = new ArrayList<>();
         for (Album album : getAllAlbums()) {
-            if (album.getArtist().equals(artist)) {
+            if (album.getArtist().getArtistName().equals(artist.getArtistName())) {
                 albums.add(album);
             }
         }

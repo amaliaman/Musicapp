@@ -40,7 +40,7 @@ public class ArtistCubeAdapter extends ArrayAdapter<Artist> {
             nameTextView.setText(currentArtist.getArtistName());
         }
 
-        ImageView artistArt = listItemView.findViewById(R.id.artist_art);
+        ImageView artistArt = listItemView.findViewById(R.id.art);
         if (currentArtist != null) {
             artistArt.setImageResource(currentArtist.getArtistArt());
             artistArt.setContentDescription(currentArtist.getArtistName());

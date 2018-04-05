@@ -32,7 +32,7 @@
     <string name="leisure_song_12">Wear Me Down</string>
     <string name="leisure_name">Leisure</string>
     <string name="all_songs_label">All Songs</string>
-    <!--<string name="all_artists_label">all artists...</string>-->
-    <!--<string name="all_albums_label">all albums...</string>-->
+    <string name="all_artists_label">All Artists</string>
+    <string name="all_albums_label">All Albums</string>
     <string name="play">Play</string>
 </resources>

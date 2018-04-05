@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -47,8 +47,8 @@ public class SongAdapter extends ArrayAdapter<Song> {
             numberTextView.setText(currentSong.getArtist().getArtistName());
         }
 
-        Button b = listItemView.findViewById(R.id.play);
-        b.setOnClickListener(new View.OnClickListener() {
+        ImageView playButton = listItemView.findViewById(R.id.play);
+        playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);

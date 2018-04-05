@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/defaultPadding">
 
     <TextView
         android:id="@+id/artist_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="artist name" />
+        android:paddingBottom="@dimen/defaultPadding"
+        android:textAllCaps="true"
+        tools:text="@string/bowie_name" />
 
-    <Button
+    <ImageView
+        android:id="@+id/art"
+        style="@style/ItemArt"
+        android:layout_below="@id/artist_name"
+        tools:src="@drawable/bowie" />
+
+    <ImageView
         android:id="@+id/songs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="songs" />
-    <Button
+        android:layout_alignTop="@id/art"
+        android:layout_toRightOf="@id/art"
+        android:paddingBottom="@dimen/defaultPadding"
+        android:src="@drawable/ic_songs"
+        android:layout_toEndOf="@id/art" />
+
+    <ImageView
         android:id="@+id/albums"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="albums" />
+        android:layout_below="@id/songs"
+        android:layout_toRightOf="@id/art"
+        android:src="@drawable/ic_albums"
+        android:layout_toEndOf="@id/art" />
 
-</LinearLayout>
+</RelativeLayout>

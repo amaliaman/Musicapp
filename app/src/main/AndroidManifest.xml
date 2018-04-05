@@ -20,7 +20,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ArtistsActivity"
-            android:label="@string/artists_label"
+            android:label="@string/all_artists_label"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".NowPlayingActivity"
@@ -28,7 +28,6 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AlbumsActivity"
-            android:label="@string/albums_label"
             android:parentActivityName=".MainActivity" />
     </application>
 

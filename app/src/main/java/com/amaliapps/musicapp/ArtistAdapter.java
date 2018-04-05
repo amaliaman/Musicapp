@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,23 +40,28 @@ public class ArtistAdapter extends ArrayAdapter<Artist> {
         if (currentArtist != null) {
             nameTextView.setText(currentArtist.getArtistName());
         }
-//
-        Button b = listItemView.findViewById(R.id.songs);
-        b.setOnClickListener(new View.OnClickListener() {
+
+        ImageView art = listItemView.findViewById(R.id.art);
+        if (currentArtist != null) {
+            art.setImageResource(currentArtist.getArtistArt());
+        }
+
+        ImageView songsButton = listItemView.findViewById(R.id.songs);
+        songsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent songsIntent = new Intent(view.getContext(), SongsActivity.class);
-                songsIntent.putExtra(MainActivity.SONGS_EXTRA, MusicLibrary.getSongsByArtist(currentArtist));
+                songsIntent.putExtra(MainActivity.ARTISTS_EXTRA, currentArtist);
                 view.getContext().startActivity(songsIntent);
             }
         });
 
-        Button bAlbums = listItemView.findViewById(R.id.albums);
-        bAlbums.setOnClickListener(new View.OnClickListener() {
+        ImageView albumsButton = listItemView.findViewById(R.id.albums);
+        albumsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent albumsIntent = new Intent(view.getContext(), AlbumsActivity.class);
-                albumsIntent.putExtra(MainActivity.ALBUMS_EXTRA, MusicLibrary.getAlbumsByArtist(currentArtist));
+                albumsIntent.putExtra(MainActivity.ARTISTS_EXTRA, currentArtist);
                 view.getContext().startActivity(albumsIntent);
             }
         });

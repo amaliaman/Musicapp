@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Artist artist = (Artist) artistsGridView.getItemAtPosition(position);
                 Intent albumsIntent = new Intent(MainActivity.this, AlbumsActivity.class);
-                albumsIntent.putParcelableArrayListExtra(ALBUMS_EXTRA, MusicLibrary.getAlbumsByArtist(artist));
+                albumsIntent.putExtra(ARTISTS_EXTRA, artist);
                 startActivity(albumsIntent);
             }
         });
@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Album album = (Album) albumsGridView.getItemAtPosition(position);
                 Intent albumsIntent = new Intent(MainActivity.this, SongsActivity.class);
-//                albumsIntent.putParcelableArrayListExtra(SONGS_EXTRA, album.getSongs());
                 albumsIntent.putExtra(ALBUM_EXTRA, album);
                 startActivity(albumsIntent);
             }

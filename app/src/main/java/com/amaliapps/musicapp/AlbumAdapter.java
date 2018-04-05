@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,13 +40,17 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
         if (currentAlbum != null) {
             nameTextView.setText(currentAlbum.getName());
         }
-//
-        Button b = listItemView.findViewById(R.id.songs);
-        b.setOnClickListener(new View.OnClickListener() {
+
+        ImageView art = listItemView.findViewById(R.id.art);
+        if (currentAlbum != null) {
+            art.setImageResource(currentAlbum.getAlbumArt());
+        }
+        ImageView songsButton = listItemView.findViewById(R.id.songs);
+        songsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent songsIntent = new Intent(view.getContext(), SongsActivity.class);
-                songsIntent.putExtra(MainActivity.SONGS_EXTRA, currentAlbum != null ? currentAlbum.getSongs() : null);
+                songsIntent.putExtra(MainActivity.ALBUM_EXTRA, currentAlbum);
                 view.getContext().startActivity(songsIntent);
             }
         });
