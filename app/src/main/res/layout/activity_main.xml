@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/songs"
     tools:context="com.amaliapps.musicapp.MainActivity">
 
     <LinearLayout
@@ -10,10 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--artists sections-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary_dark"
+            android:background="@color/artists"
             android:padding="8dp">
 
             <TextView
@@ -37,10 +39,11 @@
                 android:numColumns="3" />
         </RelativeLayout>
 
+        <!--albums section-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
+            android:background="@color/albums"
             android:padding="8dp">
 
             <TextView
@@ -64,10 +67,11 @@
                 android:numColumns="3" />
         </RelativeLayout>
 
+        <!--songs section-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/accent"
+            android:background="@color/songs"
             android:padding="8dp">
 
             <TextView

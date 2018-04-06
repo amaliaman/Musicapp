@@ -1,14 +1,12 @@
 package com.amaliapps.musicapp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -47,15 +45,15 @@ public class SongAdapter extends ArrayAdapter<Song> {
             numberTextView.setText(currentSong.getArtist().getArtistName());
         }
 
-        ImageView playButton = listItemView.findViewById(R.id.play);
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);
-                nowPlayingIntent.putExtra(MainActivity.NOW_PLAYING_EXTRA, currentSong);
-                view.getContext().startActivity(nowPlayingIntent);
-            }
-        });
+//        ImageView playButton = listItemView.findViewById(R.id.play);
+//        playButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);
+//                nowPlayingIntent.putExtra(MainActivity.NOW_PLAYING_EXTRA, currentSong);
+//                view.getContext().startActivity(nowPlayingIntent);
+//            }
+//        });
 
         return listItemView;
     }

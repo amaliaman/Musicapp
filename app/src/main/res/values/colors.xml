@@ -14,4 +14,8 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
 
+    <color name="artists">#3ED3C3</color>
+    <color name="albums">#E46471</color>
+    <color name="songs">#8E48AD</color>
+
 </resources>

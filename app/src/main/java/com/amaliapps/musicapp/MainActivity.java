@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             // create Artists
             Artist bowie = new Artist(getString(R.string.bowie_name), R.drawable.bowie);
             Artist blur = new Artist(getString(R.string.blur_name), R.drawable.blur);
+            Artist bauhaus = new Artist(getString(R.string.bauhaus_name), R.drawable.bauhaus);
 
             // create Songs & Albums
             ArrayList<Song> lowSongs = new ArrayList<>();
@@ -169,6 +170,21 @@ public class MainActivity extends AppCompatActivity {
             Album low = new Album(getString(R.string.low_name), lowSongs, R.drawable.low, bowie);
             MusicLibrary.addAlbum(low);
 
+            ArrayList<Song> diamondDogsSongs = new ArrayList<>();
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_1), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_2), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_3), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_4), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_5), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_6), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_7), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_8), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_9), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_10), bowie));
+            diamondDogsSongs.add(new Song(getString(R.string.diamond_dogs_song_11), bowie));
+            Album diamondDogs = new Album(getString(R.string.diamond_dogs_name), diamondDogsSongs, R.drawable.diamond_dogs, bowie);
+            MusicLibrary.addAlbum(diamondDogs);
+
             ArrayList<Song> leisureSongs = new ArrayList<>();
             leisureSongs.add(new Song(getString(R.string.leisure_song_1), blur));
             leisureSongs.add(new Song(getString(R.string.leisure_song_2), blur));
@@ -184,6 +200,20 @@ public class MainActivity extends AppCompatActivity {
             leisureSongs.add(new Song(getString(R.string.leisure_song_12), blur));
             Album leisure = new Album(getString(R.string.leisure_name), leisureSongs, R.drawable.leisure, blur);
             MusicLibrary.addAlbum(leisure);
+
+            ArrayList<Song> maskSongs = new ArrayList<>();
+            maskSongs.add(new Song(getString(R.string.mask_song_1), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_2), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_3), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_4), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_5), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_6), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_7), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_8), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_9), bauhaus));
+            maskSongs.add(new Song(getString(R.string.mask_song_10), bauhaus));
+            Album mask = new Album(getString(R.string.mask_name), maskSongs, R.drawable.mask, bauhaus);
+            MusicLibrary.addAlbum(mask);
 
             MusicLibrary.setIsInitialized(true);
         }

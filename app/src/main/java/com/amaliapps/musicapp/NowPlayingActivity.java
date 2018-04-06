@@ -2,9 +2,13 @@ package com.amaliapps.musicapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NowPlayingActivity extends AppCompatActivity {
+
+    boolean isPlaying;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,21 @@ public class NowPlayingActivity extends AppCompatActivity {
         TextView artist = findViewById(R.id.artist_name);
         artist.setText(currentSong.getArtist().getArtistName());
 
+        final ImageView controlButton = findViewById(R.id.play_pause);
+        controlButton.setImageResource(R.drawable.ic_pause);
+        isPlaying = false;
 
+        controlButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPlaying) {
+                    controlButton.setImageResource(R.drawable.ic_pause);
+                    isPlaying = false;
+                } else {
+                    controlButton.setImageResource(R.drawable.ic_play);
+                    isPlaying = true;
+                }
+            }
+        });
     }
 }

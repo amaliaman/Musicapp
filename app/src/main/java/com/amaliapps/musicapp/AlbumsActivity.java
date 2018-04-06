@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,14 +31,25 @@ public class AlbumsActivity extends AppCompatActivity {
             albums = MusicLibrary.getAlbumsByArtist(artist);
             artImageView.setImageResource(artist.getArtistArt());
             artImageView.setVisibility(View.VISIBLE);
+            LinearLayout header = findViewById(R.id.header);
+            header.setBackgroundColor(getResources().getColor(R.color.artists));
         } else {
             setTitle(R.string.all_albums_label);
             albums = intent.getParcelableArrayListExtra(MainActivity.ALBUMS_EXTRA);
         }
 
         AlbumAdapter albumAdapter = new AlbumAdapter(this, albums);
-        ListView albumsListView = findViewById(R.id.items_view);
+        final ListView albumsListView = findViewById(R.id.items_view);
         albumsListView.setAdapter(albumAdapter);
 
+        albumsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Album album = (Album) albumsListView.getItemAtPosition(position);
+                Intent albumsIntent = new Intent(view.getContext(), SongsActivity.class);
+                albumsIntent.putExtra(MainActivity.ALBUM_EXTRA, album);
+                startActivity(albumsIntent);
+            }
+        });
     }
 }

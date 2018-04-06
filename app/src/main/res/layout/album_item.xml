@@ -18,14 +18,4 @@
         android:layout_below="@id/album_name"
         tools:src="@drawable/low" />
 
-    <ImageView
-        android:id="@+id/songs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/art"
-        android:layout_toEndOf="@id/art"
-        android:layout_toRightOf="@id/art"
-        android:paddingBottom="@dimen/defaultPadding"
-        android:src="@drawable/ic_songs" />
-
 </RelativeLayout>
