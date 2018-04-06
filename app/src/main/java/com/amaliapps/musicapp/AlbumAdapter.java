@@ -31,15 +31,16 @@ public class AlbumAdapter extends ArrayAdapter<Album> {
                     R.layout.album_item, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
+        // Get the {@link Album} object located at this position in the list
         final Album currentAlbum = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
+        // set album name in layout
         TextView nameTextView = listItemView.findViewById(R.id.album_name);
         if (currentAlbum != null) {
             nameTextView.setText(currentAlbum.getName());
         }
 
+        // set album image in layout
         ImageView art = listItemView.findViewById(R.id.art);
         if (currentAlbum != null) {
             art.setImageResource(currentAlbum.getAlbumArt());

@@ -32,20 +32,21 @@ public class ArtistAdapter extends ArrayAdapter<Artist> {
                     R.layout.artist_item, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
+        // Get the {@link Artist} object located at this position in the list
         final Artist currentArtist = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
         TextView nameTextView = listItemView.findViewById(R.id.artist_name);
         if (currentArtist != null) {
             nameTextView.setText(currentArtist.getArtistName());
         }
 
+        // set artist image in layout
         ImageView art = listItemView.findViewById(R.id.art);
         if (currentArtist != null) {
             art.setImageResource(currentArtist.getArtistArt());
         }
 
+        // set listener on songs button
         ImageView songsButton = listItemView.findViewById(R.id.songs);
         songsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +57,7 @@ public class ArtistAdapter extends ArrayAdapter<Artist> {
             }
         });
 
+        // set listener on albums button
         ImageView albumsButton = listItemView.findViewById(R.id.albums);
         albumsButton.setOnClickListener(new View.OnClickListener() {
             @Override

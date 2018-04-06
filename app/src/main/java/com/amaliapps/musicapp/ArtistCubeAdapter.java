@@ -31,15 +31,16 @@ public class ArtistCubeAdapter extends ArrayAdapter<Artist> {
                     R.layout.artist_cube, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
+        // Get the {@link Artist} object located at this position in the list
         Artist currentArtist = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
+        // set artist name in layout
         TextView nameTextView = listItemView.findViewById(R.id.artist_name);
         if (currentArtist != null) {
             nameTextView.setText(currentArtist.getArtistName());
         }
 
+        // set artist image in layout
         ImageView artistArt = listItemView.findViewById(R.id.art);
         if (currentArtist != null) {
             artistArt.setImageResource(currentArtist.getArtistArt());

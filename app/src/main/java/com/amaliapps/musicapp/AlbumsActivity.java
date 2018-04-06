@@ -21,13 +21,13 @@ public class AlbumsActivity extends AppCompatActivity {
         // get Albums list from intent
         Intent intent = getIntent();
 
-        ArrayList<Album> albums = new ArrayList<>();
+        ArrayList<Album> albums;
         Artist artist = intent.getParcelableExtra(MainActivity.ARTISTS_EXTRA);
 
         ImageView artImageView = findViewById(R.id.art);
         // check if intent has artist
         if (artist != null) {
-            setTitle("Albums by " + artist.getArtistName());
+            setTitle(String.format(getString(R.string.albums_by), artist.getArtistName()));
             albums = MusicLibrary.getAlbumsByArtist(artist);
             artImageView.setImageResource(artist.getArtistArt());
             artImageView.setVisibility(View.VISIBLE);
@@ -38,10 +38,12 @@ public class AlbumsActivity extends AppCompatActivity {
             albums = intent.getParcelableArrayListExtra(MainActivity.ALBUMS_EXTRA);
         }
 
+        // attach adapter to ListView
         AlbumAdapter albumAdapter = new AlbumAdapter(this, albums);
         final ListView albumsListView = findViewById(R.id.items_view);
         albumsListView.setAdapter(albumAdapter);
 
+        // set listener on album item in list
         albumsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

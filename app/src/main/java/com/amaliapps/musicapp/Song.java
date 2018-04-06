@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Created by amaliam on 15/03/2018.
+ * A song.
  */
 
 public class Song implements Comparable<Song>, Parcelable {
@@ -17,12 +18,15 @@ public class Song implements Comparable<Song>, Parcelable {
         this.mArtist = artist;
     }
 
-
-    private Song(Parcel in) {
-        mSongName = in.readString();
-        mArtist = in.readParcelable(Artist.class.getClassLoader());
+    String getSongName() {
+        return mSongName;
     }
 
+    Artist getArtist() {
+        return mArtist;
+    }
+
+    // implementation of Parcelable interface
     public static final Creator<Song> CREATOR = new Creator<Song>() {
         @Override
         public Song createFromParcel(Parcel in) {
@@ -35,19 +39,10 @@ public class Song implements Comparable<Song>, Parcelable {
         }
     };
 
-    String getSongName() {
-        return mSongName;
+    private Song(Parcel in) {
+        mSongName = in.readString();
+        mArtist = in.readParcelable(Artist.class.getClassLoader());
     }
-
-    Artist getArtist() {
-        return mArtist;
-    }
-
-    @Override
-    public int compareTo(@NonNull Song o) {
-        return this.mSongName.compareTo(o.mSongName);
-    }
-
 
     @Override
     public int describeContents() {
@@ -58,5 +53,11 @@ public class Song implements Comparable<Song>, Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(mSongName);
         dest.writeParcelable(mArtist, flags);
+    }
+
+    // implementation of Comparable interface
+    @Override
+    public int compareTo(@NonNull Song o) {
+        return this.mSongName.compareTo(o.mSongName);
     }
 }

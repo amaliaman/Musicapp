@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Created by amaliam on 15/03/2018.
+ * An Artist has songs and Albums.
  */
 
 public class Artist implements Parcelable, Comparable<Artist> {
@@ -17,6 +18,15 @@ public class Artist implements Parcelable, Comparable<Artist> {
         this.mArtistArt = artistArt;
     }
 
+    String getArtistName() {
+        return mArtistName;
+    }
+
+    public int getArtistArt() {
+        return mArtistArt;
+    }
+
+    // implement Parcelable interface
     private Artist(Parcel in) {
         mArtistName = in.readString();
         mArtistArt = in.readInt();
@@ -34,14 +44,6 @@ public class Artist implements Parcelable, Comparable<Artist> {
         }
     };
 
-    String getArtistName() {
-        return mArtistName;
-    }
-
-    public int getArtistArt() {
-        return mArtistArt;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -53,6 +55,7 @@ public class Artist implements Parcelable, Comparable<Artist> {
         dest.writeInt(mArtistArt);
     }
 
+    // implement Comparable interface
     @Override
     public int compareTo(@NonNull Artist o) {
         return this.mArtistName.compareTo(o.mArtistName);

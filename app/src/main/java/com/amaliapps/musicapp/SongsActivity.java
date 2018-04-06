@@ -44,7 +44,7 @@ public class SongsActivity extends AppCompatActivity {
         }
         // check if intent has artist
         else if (artist != null) {
-            setTitle("Songs by " + artist.getArtistName());
+            setTitle(String.format(getString(R.string.songs_by), artist.getArtistName()));
             songsList = MusicLibrary.getSongsByArtist(artist);
             artImageView.setImageResource(artist.getArtistArt());
             artImageView.setVisibility(View.VISIBLE);
@@ -56,6 +56,7 @@ public class SongsActivity extends AppCompatActivity {
         final ListView songsListView = findViewById(R.id.items_view);
         songsListView.setAdapter(songAdapter);
 
+        // set listener on song item in list
         songsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -31,20 +31,22 @@ public class AlbumCubeAdapter extends ArrayAdapter<Album> {
                     R.layout.album_cube, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
+        // Get the {@link Album} object located at this position in the list
         Album currentAlbum = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
+        // set album name in layout
         TextView nameTextView = listItemView.findViewById(R.id.album_name);
         if (currentAlbum != null) {
             nameTextView.setText(currentAlbum.getName());
         }
 
+        // set artist name in layout
         TextView artistTextView = listItemView.findViewById(R.id.artist_name);
         if (currentAlbum != null) {
             artistTextView.setText(currentAlbum.getArtist().getArtistName());
         }
 
+        // set album image in layout
         ImageView albumArt = listItemView.findViewById(R.id.album_art);
         if (currentAlbum != null) {
             albumArt.setImageResource(currentAlbum.getAlbumArt());

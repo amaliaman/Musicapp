@@ -59,4 +59,6 @@
     <string name="mask_song_9">The Man with the X-Ray Eyes</string>
     <string name="mask_song_10">Mask</string>
     <string name="mask_name">Mask</string>
+    <string name="songs_by">Songs by %s</string>
+    <string name="albums_by">Albums by %s</string>
 </resources>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Created by amaliam on 15/03/2018.
+ * An Album is a collection of Songs
  */
 
 public class Album implements Parcelable, Comparable<Album> {
@@ -23,6 +24,23 @@ public class Album implements Parcelable, Comparable<Album> {
         this.mArtist = artist;
     }
 
+    public String getName() {
+        return mName;
+    }
+
+    ArrayList<Song> getSongs() {
+        return mSongs;
+    }
+
+    public int getAlbumArt() {
+        return mAlbumArt;
+    }
+
+    Artist getArtist() {
+        return mArtist;
+    }
+
+    // implementation of Parcelable interface
     private Album(Parcel in) {
         mName = in.readString();
         mSongs = in.createTypedArrayList(Song.CREATOR);
@@ -42,22 +60,6 @@ public class Album implements Parcelable, Comparable<Album> {
         }
     };
 
-    public String getName() {
-        return mName;
-    }
-
-    ArrayList<Song> getSongs() {
-        return mSongs;
-    }
-
-    public int getAlbumArt() {
-        return mAlbumArt;
-    }
-
-    Artist getArtist() {
-        return mArtist;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -71,6 +73,7 @@ public class Album implements Parcelable, Comparable<Album> {
         dest.writeParcelable(mArtist, flags);
     }
 
+    // implementation of Comparable interface
     @Override
     public int compareTo(@NonNull Album o) {
         return this.mName.compareTo(o.mName);

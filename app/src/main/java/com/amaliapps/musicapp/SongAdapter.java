@@ -30,30 +30,20 @@ public class SongAdapter extends ArrayAdapter<Song> {
                     R.layout.song_item, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
+        // Get the {@link Song} object located at this position in the list
         final Song currentSong = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
+        // set song name in layout
         TextView nameTextView = listItemView.findViewById(R.id.song_name);
         if (currentSong != null) {
             nameTextView.setText(currentSong.getSongName());
         }
 
-        // Find the TextView in the list_item.xml layout with the ID default_text_view
+        // set artist name in layout
         TextView numberTextView = listItemView.findViewById(R.id.artist_name);
         if (currentSong != null) {
             numberTextView.setText(currentSong.getArtist().getArtistName());
         }
-
-//        ImageView playButton = listItemView.findViewById(R.id.play);
-//        playButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);
-//                nowPlayingIntent.putExtra(MainActivity.NOW_PLAYING_EXTRA, currentSong);
-//                view.getContext().startActivity(nowPlayingIntent);
-//            }
-//        });
 
         return listItemView;
     }

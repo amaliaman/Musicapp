@@ -5,6 +5,7 @@ import java.util.Collections;
 
 /**
  * Created by amaliam on 15/03/2018.
+ * The Music Library is a utility that manages songs, albums and artists.
  */
 
 class MusicLibrary {

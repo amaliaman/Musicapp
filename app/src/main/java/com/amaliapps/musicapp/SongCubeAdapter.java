@@ -30,16 +30,16 @@ public class SongCubeAdapter extends ArrayAdapter<Song> {
                     R.layout.song_cube, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
+        // Get the {@link Song} object located at this position in the list
         final Song currentSong = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
+        // set the song name in the layout
         TextView nameTextView = listItemView.findViewById(R.id.song_name);
         if (currentSong != null) {
             nameTextView.setText(currentSong.getSongName());
         }
 
-        // Find the TextView in the list_item.xml layout with the ID default_text_view
+        // set the artist name in the layout
         TextView numberTextView = listItemView.findViewById(R.id.artist_name);
         if (currentSong != null) {
             numberTextView.setText(currentSong.getArtist().getArtistName());

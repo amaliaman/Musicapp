@@ -28,6 +28,7 @@ public class NowPlayingActivity extends AppCompatActivity {
         controlButton.setImageResource(R.drawable.ic_pause);
         isPlaying = false;
 
+        // show play or pause button
         controlButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
