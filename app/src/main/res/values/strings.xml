@@ -61,4 +61,8 @@
     <string name="mask_name">Mask</string>
     <string name="songs_by">Songs by %s</string>
     <string name="albums_by">Albums by %s</string>
+    <string name="photo_credit">Photo Credit</string>
+    <string name="icons_credit">Icons Credit</string>
+    <string name="icons_credit_body">Icons designed by Freepik from Flaticon</string>
+    <string name="photo_credit_body">Diamond Dogs cover art by the artist Guy Peellaert</string>
 </resources>

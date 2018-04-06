@@ -3,10 +3,14 @@ package com.amaliapps.musicapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -218,4 +222,36 @@ public class MainActivity extends AppCompatActivity {
             MusicLibrary.setIsInitialized(true);
         }
     }
+    /**
+     * @param menu options menu
+     * @return true
+     */
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.app_menu, menu);
+        return true;
+    }
+
+    /**
+     * Handle menu options
+     *
+     * @param item menu item
+     * @return true
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.photo_credit_option:
+                Toast.makeText(this, R.string.photo_credit_body, Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.icons_credit_option:
+                Toast.makeText(this, R.string.icons_credit_body, Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
