@@ -16,7 +16,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
         // get Artists list from intent
         Intent intent = getIntent();
-        final ArrayList<Artist> artists = intent.getParcelableArrayListExtra(MainActivity.ARTISTS_EXTRA);
+        final ArrayList<Artist> artists = intent.getParcelableArrayListExtra(Extras.ARTISTS_EXTRA);
 
         ArtistAdapter artistAdapter = new ArtistAdapter(this, artists);
         ListView artistsListView = findViewById(R.id.items_view);

@@ -23,9 +23,9 @@ public class SongsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList<Song> songsList = new ArrayList<>();
 
-        final Album album = intent.getParcelableExtra(MainActivity.ALBUM_EXTRA);
-        ArrayList<Song> songs = intent.getParcelableArrayListExtra(MainActivity.SONGS_EXTRA);
-        Artist artist = intent.getParcelableExtra(MainActivity.ARTISTS_EXTRA);
+        final Album album = intent.getParcelableExtra(Extras.ALBUM_EXTRA);
+        ArrayList<Song> songs = intent.getParcelableArrayListExtra(Extras.SONGS_EXTRA);
+        Artist artist = intent.getParcelableExtra(Extras.ARTISTS_EXTRA);
 
         ImageView artImageView = findViewById(R.id.art);
         // check if intent has album
@@ -62,7 +62,7 @@ public class SongsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Song song = (Song) songsListView.getItemAtPosition(position);
                 Intent nowPlayingIntent = new Intent(view.getContext(), NowPlayingActivity.class);
-                nowPlayingIntent.putExtra(MainActivity.NOW_PLAYING_EXTRA, song);
+                nowPlayingIntent.putExtra(Extras.NOW_PLAYING_EXTRA, song);
                 startActivity(nowPlayingIntent);
             }
         });

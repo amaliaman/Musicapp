@@ -52,7 +52,7 @@ public class ArtistAdapter extends ArrayAdapter<Artist> {
             @Override
             public void onClick(View view) {
                 Intent songsIntent = new Intent(view.getContext(), SongsActivity.class);
-                songsIntent.putExtra(MainActivity.ARTISTS_EXTRA, currentArtist);
+                songsIntent.putExtra(Extras.ARTISTS_EXTRA, currentArtist);
                 view.getContext().startActivity(songsIntent);
             }
         });
@@ -63,7 +63,7 @@ public class ArtistAdapter extends ArrayAdapter<Artist> {
             @Override
             public void onClick(View view) {
                 Intent albumsIntent = new Intent(view.getContext(), AlbumsActivity.class);
-                albumsIntent.putExtra(MainActivity.ARTISTS_EXTRA, currentArtist);
+                albumsIntent.putExtra(Extras.ARTISTS_EXTRA, currentArtist);
                 view.getContext().startActivity(albumsIntent);
             }
         });

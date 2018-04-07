@@ -15,15 +15,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, GridView.OnItemClickListener {
 
     private static final int MAX_ITEMS = 3;
-
-    public static final String SONGS_EXTRA = "com.amaliapps.musicapp.SONGS";
-    public static final String ARTISTS_EXTRA = "com.amaliapps.musicapp.ARTISTS";
-    public static final String ALBUMS_EXTRA = "com.amaliapps.musicapp.ALBUMS";
-    public static final String ALBUM_EXTRA = "com.amaliapps.musicapp.ALBUM";
-    public static final String NOW_PLAYING_EXTRA = "com.amaliapps.musicapp.NOW_PLAYING";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         // fill the library with Songs, Artists and Albums
         initializeMusicLibrary();
 
-        int max = 0;
+        int max;
 
         /*
             artists section
@@ -47,30 +41,15 @@ public class MainActivity extends AppCompatActivity {
         }
         firstArtists = new ArrayList<>(firstArtists.subList(0, max));
         ArtistCubeAdapter artistCubeAdapter = new ArtistCubeAdapter(this, firstArtists);
-        final GridView artistsGridView = findViewById(R.id.all_artists);
+        GridView artistsGridView = findViewById(R.id.all_artists);
         artistsGridView.setAdapter(artistCubeAdapter);
 
         // set listener on artists grid item
-        artistsGridView.setOnItemClickListener(new GridView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Artist artist = (Artist) artistsGridView.getItemAtPosition(position);
-                Intent albumsIntent = new Intent(MainActivity.this, AlbumsActivity.class);
-                albumsIntent.putExtra(ARTISTS_EXTRA, artist);
-                startActivity(albumsIntent);
-            }
-        });
+        artistsGridView.setOnItemClickListener(this);
 
         // set listener on all artists link
         ImageView allArtists = findViewById(R.id.all_artists_link);
-        allArtists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent artistsIntent = new Intent(MainActivity.this, ArtistsActivity.class);
-                artistsIntent.putParcelableArrayListExtra(ARTISTS_EXTRA, MusicLibrary.getAllArtists());
-                startActivity(artistsIntent);
-            }
-        });
+        allArtists.setOnClickListener(this);
 
         /*
             albums section
@@ -88,26 +67,11 @@ public class MainActivity extends AppCompatActivity {
         albumsGridView.setAdapter(albumCubeAdapter);
 
         // set listener on albums grid item
-        albumsGridView.setOnItemClickListener(new GridView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Album album = (Album) albumsGridView.getItemAtPosition(position);
-                Intent albumsIntent = new Intent(MainActivity.this, SongsActivity.class);
-                albumsIntent.putExtra(ALBUM_EXTRA, album);
-                startActivity(albumsIntent);
-            }
-        });
+        albumsGridView.setOnItemClickListener(this);
 
         // set listener on all albums links
         ImageView allAlbums = findViewById(R.id.all_albums_link);
-        allAlbums.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent albumsIntent = new Intent(MainActivity.this, AlbumsActivity.class);
-                albumsIntent.putParcelableArrayListExtra(ALBUMS_EXTRA, MusicLibrary.getAllAlbums());
-                startActivity(albumsIntent);
-            }
-        });
+        allAlbums.setOnClickListener(this);
 
         /*
             songs section
@@ -125,26 +89,11 @@ public class MainActivity extends AppCompatActivity {
         songsGridView.setAdapter(songCubeAdapter);
 
         // set listener on songs grid item
-        songsGridView.setOnItemClickListener(new GridView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Song song = (Song) songsGridView.getItemAtPosition(position);
-                Intent nowPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
-                nowPlayingIntent.putExtra(NOW_PLAYING_EXTRA, song);
-                startActivity(nowPlayingIntent);
-            }
-        });
+        songsGridView.setOnItemClickListener(this);
 
         // set listener on all songs link
         ImageView allSongs = findViewById(R.id.all_songs_link);
-        allSongs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent songsIntent = new Intent(MainActivity.this, SongsActivity.class);
-                songsIntent.putParcelableArrayListExtra(SONGS_EXTRA, MusicLibrary.getAllSongs());
-                startActivity(songsIntent);
-            }
-        });
+        allSongs.setOnClickListener(this);
     }
 
     /**
@@ -222,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
             MusicLibrary.setIsInitialized(true);
         }
     }
+
     /**
      * @param menu options menu
      * @return true
@@ -254,4 +204,50 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        // Perform action on click
+        switch (view.getId()) {
+            case R.id.all_artists_link:
+                Intent artistsIntent = new Intent(MainActivity.this, ArtistsActivity.class);
+                artistsIntent.putParcelableArrayListExtra(Extras.ARTISTS_EXTRA, MusicLibrary.getAllArtists());
+                startActivity(artistsIntent);
+                break;
+            case R.id.all_albums_link:
+                Intent albumsIntent = new Intent(MainActivity.this, AlbumsActivity.class);
+                albumsIntent.putParcelableArrayListExtra(Extras.ALBUMS_EXTRA, MusicLibrary.getAllAlbums());
+                startActivity(albumsIntent);
+                break;
+            case R.id.all_songs_link:
+                Intent songsIntent = new Intent(MainActivity.this, SongsActivity.class);
+                songsIntent.putParcelableArrayListExtra(Extras.SONGS_EXTRA, MusicLibrary.getAllSongs());
+                startActivity(songsIntent);
+                break;
+
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()) {
+            case R.id.all_artists:
+                Artist artist = (Artist) parent.getItemAtPosition(position);
+                Intent albumsIntent = new Intent(MainActivity.this, AlbumsActivity.class);
+                albumsIntent.putExtra(Extras.ARTISTS_EXTRA, artist);
+                startActivity(albumsIntent);
+                break;
+            case R.id.all_albums:
+                Album album = (Album) parent.getItemAtPosition(position);
+                Intent songsIntent = new Intent(MainActivity.this, SongsActivity.class);
+                songsIntent.putExtra(Extras.ALBUM_EXTRA, album);
+                startActivity(songsIntent);
+                break;
+            case R.id.all_songs:
+                Song song = (Song) parent.getItemAtPosition(position);
+                Intent nowPlayingIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
+                nowPlayingIntent.putExtra(Extras.NOW_PLAYING_EXTRA, song);
+                startActivity(nowPlayingIntent);
+                break;
+        }
+    }
 }

@@ -22,7 +22,7 @@ public class AlbumsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         ArrayList<Album> albums;
-        Artist artist = intent.getParcelableExtra(MainActivity.ARTISTS_EXTRA);
+        Artist artist = intent.getParcelableExtra(Extras.ARTISTS_EXTRA);
 
         ImageView artImageView = findViewById(R.id.art);
         // check if intent has artist
@@ -35,7 +35,7 @@ public class AlbumsActivity extends AppCompatActivity {
             header.setBackgroundColor(getResources().getColor(R.color.artists));
         } else {
             setTitle(R.string.all_albums_label);
-            albums = intent.getParcelableArrayListExtra(MainActivity.ALBUMS_EXTRA);
+            albums = intent.getParcelableArrayListExtra(Extras.ALBUMS_EXTRA);
         }
 
         // attach adapter to ListView
@@ -49,7 +49,7 @@ public class AlbumsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Album album = (Album) albumsListView.getItemAtPosition(position);
                 Intent albumsIntent = new Intent(view.getContext(), SongsActivity.class);
-                albumsIntent.putExtra(MainActivity.ALBUM_EXTRA, album);
+                albumsIntent.putExtra(Extras.ALBUM_EXTRA, album);
                 startActivity(albumsIntent);
             }
         });

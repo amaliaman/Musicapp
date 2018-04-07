@@ -16,7 +16,7 @@ public class NowPlayingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_now_playing);
 
         // get song details from intent
-        Song currentSong = getIntent().getParcelableExtra(MainActivity.NOW_PLAYING_EXTRA);
+        Song currentSong = getIntent().getParcelableExtra(Extras.NOW_PLAYING_EXTRA);
 
         TextView songName = findViewById(R.id.song_name);
         songName.setText(currentSong.getSongName());
